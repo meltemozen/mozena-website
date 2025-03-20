@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  --spacing-sectionX: 3.125rem;
+  --spacing-sectionX-m: 1rem;
+
+  --spacing-sectionY: 6.25rem;
+  --spacing-sectionY-m: 3.125rem;
+
+  --spacing-section: 3.125rem 6.25rem;
+  --spacing-section-m: 1rem 3.125rem;
+}
