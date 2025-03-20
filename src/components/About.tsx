@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 interface AboutProps {
   title: string;
+  background_items: any;
 }
 
-const About: React.FC<AboutProps> = () => {
+const About: React.FC<AboutProps> = ({title, background_items}) => {
     const [animateOut, setAnimateOut] = useState(false);
   
     /*useEffect(() => {
@@ -35,7 +36,7 @@ const About: React.FC<AboutProps> = () => {
     <div className="flex flex-col md:flex-row justify-between items-center gap-12 px-8 md:px-20 py-16 bg-white w-full">
   <div className="w-full md:w-[50%] space-y-10 text-center md:text-left">
     <h2 className="text-4xl md:text-6xl font-bold text-[#002566] font-sans leading-tight">
-      Güvenilir ve Sonuç Odaklı
+      {title}
     </h2>
     <p className="text-base md:text-lg text-[#002566] leading-relaxed font-light">
       Her projeye özel bir bakış açısı getiriyor, işinizi en iyi şekilde yansıtmak
@@ -50,12 +51,12 @@ const About: React.FC<AboutProps> = () => {
   </div>
   <div className="relative w-full md:w-[45%] h-[300px] md:h-[450px] flex items-center justify-center">
     <img
-      src="src/assets/Background items.png"
+      src={background_items}
       alt="background"
       className="absolute top-0 left-0 w-full h-full object-contain z-0"
     />
     <img
-      src="src/assets/Uzay.png"
+      src="/assets/Uzay.png"
       alt="animated"
       className={`
         absolute w-24 md:w-48 transition-all duration-[5000ms] ease-in z-10
