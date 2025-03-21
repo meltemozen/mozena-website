@@ -129,7 +129,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({ title }) => {
         setSubmitError(
           error instanceof Error
             ? error.message
-            : "Bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+            : "Bir hata oluştu. Lütfen tekrar deneyin."
         );
         console.error("Form submission error:", error);
       } finally {
