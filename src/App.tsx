@@ -6,6 +6,7 @@ import CommunicationForm from './components/CommunicationForm';
 import Blog from './components/Blog';
 import Services from './components/Services';
 import Projects from './components/Projects';
+import MouseTracker from './components/MouseTracker';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
     <Services title={"Services"}/>
     <Blog title={"Blog"}/>
     <CommunicationForm title={"CommunicationForm"}/>   
-    <Footer title={"Footer"}/>
+    <Footer title={"Footer"} />
+    <MouseTracker />
     </>
   )
 };

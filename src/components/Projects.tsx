@@ -73,7 +73,7 @@ const ProjectItem = ({ project, index }: { project: any; index: number }) => {
 
   return (
     <li
-      className="relative w-full md:w-[40%] flex flex-col gap-2"
+      className="relative w-full md:w-[40%] flex flex-col gap-2 pointer-events-none"
       style={{
         transition: "all 1.25s",
         opacity: isVisible ? 1 : 0,
@@ -86,11 +86,22 @@ const ProjectItem = ({ project, index }: { project: any; index: number }) => {
       ref={ref}
     >
       {/* Project Image */}
-      <div className="h-[300px] bg-neutral-500 rounded-3xl mb-2" />
+      <div className="h-[300px] bg-neutral-500 rounded-3xl mb-2 pointer-events-auto overflow-hidden">
+        <a href={project.link} className="block w-full h-full">
+          <img
+            src={`https://picsum.photos/seed/${project.title}/400/300`}
+            alt={project.title}
+            className="w-full h-full object-cover rounded-3xl hover:scale-125 transition-all duration-[700ms]"
+            data-hover="project"
+          />
+        </a>
+      </div>
 
       {/* Project Title & Description */}
-      <h2 className="text-xl font-bold uppercase">{project.title}</h2>
-      <p className="text-lg">{project.description}</p>
+      <div className="pointer-events-none">
+        <h2 className="text-xl font-bold uppercase">{project.title}</h2>
+        <p className="text-lg">{project.description}</p>
+      </div>
     </li>
   )
 }
