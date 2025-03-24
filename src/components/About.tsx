@@ -41,15 +41,14 @@ const About: React.FC<AboutProps> = () => {
   </div>
   <div className="relative w-full md:w-[45%] h-[300px] md:h-[450px] flex items-center justify-center">
     <img
-      src="public/assets/Background items.png"
+      src="/assets/Background items.png"
       alt="background"
       className="absolute top-0 left-0 w-full h-full object-contain z-0"
     />
     <img
-      src="public/assets/Uzay.png"
+      src="/assets/Uzay.png"
       alt="animated"
-      className={`
-        absolute w-24 md:w-48 transition-all duration-[5000ms] ease-in z-10
+      className={`absolute w-24 md:w-48 transition-all duration-[5000ms] ease-in z-10
         ${animateOut ? "-translate-x-[150%] -translate-y-[150%] opacity-0" : "translate-x-0 translate-y-0 opacity-100"}
       `}
     />
