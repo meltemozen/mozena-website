@@ -7,13 +7,14 @@ import Blog from './components/Blog';
 import Services from './components/Services';
 import Projects from './components/Projects';
 import MouseTracker from './components/MouseTracker';
+import background_items from "./assets/Background items.png";
 
 function App() {
   return (
     <>
 
     <Navbar title={"Navbar"}/>
-    <About title={"About"}/>
+    <About title={"Güvenilir ve Sonuç Odaklı"}  background_items={background_items} />
     <Projects title={"Projects"}/>
     <Services title={"Services"}/>
     <Blog title={"Blog"}/>
