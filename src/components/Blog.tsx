@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import datingevent from "../images/datingevent.jpg";
+import datingevent from "../assets/datingevent.jpg";
 
 interface BlogContent {
   content_title: string;
