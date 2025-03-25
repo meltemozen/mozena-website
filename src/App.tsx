@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import background_items from "./assets/Background items.png"
 import rocketImage from './assets/Uzay.png';
 import Blogimages from "./assets/blog.png";
+
 function App() {
   return (
     <>
