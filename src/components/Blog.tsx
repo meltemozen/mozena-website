@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import datingevent from "../assets/datingevent.jpg";
 
 interface BlogContent {
   content_title: string;
@@ -18,7 +19,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage }) => {
     {
       content_title: "Tanışma Etkinliği",
       text: "Denizli Coders olarak ilk etkinliğimi düzenledik,Mert bey engin bilgilerini bize aktardı. ",
-      image: "src/assets/datingevent.jpg",
+      image: datingevent,
     },
     {
       content_title: "Lorem Ipsum",
@@ -66,11 +67,13 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage }) => {
   const selectedPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center p-4">
+    <div className="bg-white min-h-screen flex flex-col items-center p-4 
+  w-full h-auto sm:w-[1440px] sm:h-[891px] 
+  top-0 left-0 sm:top-[-2520px] sm:left-[8052px]">
       <motion.img
         src={blogimage}
         alt="Blogimages"
-        className="w-[350px] h-[350px] block mx-auto md:absolute md:right-0 md:top-420"
+        className="w-[350px] h-[350px] -top-[100px] left-[1003px] mx-auto md:absolute md:right-0 md:top-580 z-10"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
