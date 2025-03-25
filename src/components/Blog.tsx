@@ -6,7 +6,6 @@ interface BlogContent {
   text: string;
   image: string;
 }
-
 interface BlogProps {
   title: string;
   blogimage: string;
