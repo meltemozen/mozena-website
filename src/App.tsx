@@ -7,7 +7,7 @@ import Blog from './components/Blog';
 import Services from './components/Services';
 import Projects from './components/Projects';
 import background_items from "./assets/Background items.png"
-
+import Blogimages from "./assets/blog.png";
 function App() {
   return (
     <>
@@ -16,7 +16,7 @@ function App() {
     <About title={"Güvenilir ve Sonuç Odaklı"}  background_items= {background_items}/>
     <Projects title={"Projects"}/>
     <Services title={"Services"}/>
-    <Blog title={"Blog"}/>
+    <Blog title={"Blog"} blogimage={Blogimages}/>
     <CommunicationForm title={"CommunicationForm"}/>   
     <Footer title={"Footer"}/>
     </>
