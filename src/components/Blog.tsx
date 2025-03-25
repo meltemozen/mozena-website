@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-<<<<<<< HEAD
-import datingevent from "../assets/datingevent.jpg";
-=======
->>>>>>> dcca5c45f7ff6f851c33635394fd69c1f9571fe4
+import datingevent from "../images/datingevent.jpg";
 
 interface BlogContent {
   content_title: string;
@@ -22,11 +19,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage }) => {
     {
       content_title: "Tanışma Etkinliği",
       text: "Denizli Coders olarak ilk etkinliğimi düzenledik,Mert bey engin bilgilerini bize aktardı. ",
-<<<<<<< HEAD
       image: datingevent,
-=======
-      image: "src/assets/datingevent.jpg",
->>>>>>> dcca5c45f7ff6f851c33635394fd69c1f9571fe4
     },
     {
       content_title: "Lorem Ipsum",
@@ -74,7 +67,6 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage }) => {
   const selectedPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
   return (
-<<<<<<< HEAD
     <div className="bg-white min-h-screen flex flex-col items-center p-4 
   w-full h-auto sm:w-[1440px] sm:h-[891px] 
   top-0 left-0 sm:top-[-2520px] sm:left-[8052px]">
@@ -82,13 +74,6 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage }) => {
         src={blogimage}
         alt="Blogimages"
         className="w-[350px] h-[350px] -top-[100px] left-[1003px] mx-auto md:absolute md:right-0 md:top-580 z-10"
-=======
-    <div className="bg-white min-h-screen flex flex-col items-center p-4">
-      <motion.img
-        src={blogimage}
-        alt="Blogimages"
-        className="w-[350px] h-[350px] block mx-auto md:absolute md:right-0 md:top-420"
->>>>>>> dcca5c45f7ff6f851c33635394fd69c1f9571fe4
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
