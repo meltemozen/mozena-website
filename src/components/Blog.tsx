@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import datingevent from "../assets/datingevent.jpg";
+
 
 interface BlogContent {
   content_title: string;
@@ -10,53 +10,13 @@ interface BlogContent {
 interface BlogProps {
   title: string;
   blogimage: string;
+  posts: BlogContent[];
 }
 
-const Blog: React.FC<BlogProps> = ({ title, blogimage }) => {
+const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const postsPerPage = 3;
-  const posts: BlogContent[] = [
-    {
-      content_title: "Tanışma Etkinliği",
-      text: "Denizli Coders olarak ilk etkinliğimi düzenledik,Mert bey engin bilgilerini bize aktardı. ",
-      image: datingevent,
-    },
-    {
-      content_title: "Lorem Ipsum",
-      text: "This is the second blog post. It contains even more interesting information.",
-      image: "image2.jpg",
-    },
-    {
-      content_title: "Lorem Ipsum",
-      text: "This is the third blog post. It contains the most interesting information.",
-      image: "image3.jpg",
-    },
-    {
-      content_title: "Lorem Ipsum",
-      text: "This is the fourth blog post. It contains even more interesting information.",
-      image: "image4.jpg",
-    },
-    {
-      content_title: "Lorem Ipsum",
-      text: "This is the fifth blog post. It contains even more interesting information.",
-      image: "image5.jpg",
-    },
-    {
-      content_title: "Lorem Ipsum",
-      text: "This is the sixth blog post. It contains even more interesting information.",
-      image: "image6.jpg",
-    },
-    {
-      content_title: "Lorem Ipsum",
-      text: "This is the seventh blog post. It contains even more interesting information.",
-      image: "image7.jpg",
-    },
-    {
-      content_title: "Lorem Ipsum",
-      text: "This is the eighth blog post. It contains even more interesting information.",
-      image: "image8.jpg",
-    },
-  ];
+ 
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
   const changePage = (page: number) => {
