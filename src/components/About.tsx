@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import React, { useEffect, useState } from 'react';
-
 interface AboutProps {
   title: string;
   rocketImage: any;
