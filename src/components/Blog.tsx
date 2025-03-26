@@ -16,7 +16,7 @@ interface BlogProps {
 const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const postsPerPage = 3;
- 
+  
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
   const changePage = (page: number) => {
@@ -59,21 +59,22 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
           {selectedPosts.map((post, index) => (
             <motion.div
               key={index}
-              className="bg-[#D9D9D9] w-full max-w-[433px] h-[450px] rounded-[20px] flex flex-col items-center shadow-lg relative overflow-hidden object-cover"
+              className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col items-center shadow-lg relative overflow-hidden"
             >
               <div
                 className="w-full h-full bg-cover rounded-t-[20px]"
                 style={{ backgroundImage: `url(${post.image})` }}
               ></div>
 
-              <div className="bg-white w-full h-[156px] flex flex-col items-center justify-center text-center p-4 rounded-b-[20px]">
-                <h2 className="text-2xl md:text-2xl font-bold text-[#002566] mb-2">
-                  {post.content_title}
-                </h2>
-                <p className="text-gray-700 text-sm md:text-base">
-                  {post.text}
-                </p>
-              </div>
+              <div className="bg-white w-full h-auto flex flex-col items-center justify-center text-center p-4 rounded-b-[20px]">
+               <h2 className="text-xl md:text-2xl font-bold text-[#002566] mb-2">
+               {post.content_title}
+               </h2>
+               <p className="text-gray-700 text-sm md:text-base">
+               {post.text}
+               </p>
+               </div>
+            
             </motion.div>
           ))}
         </motion.section>
