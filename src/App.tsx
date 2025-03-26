@@ -6,8 +6,8 @@ import CommunicationForm from './components/CommunicationForm';
 import Blog from './components/Blog';
 import Services from './components/Services';
 import Projects from './components/Projects';
-import background_items from "./assets/Background items.png";
-import rocketImage from './assets/Uzay.png';
+import background_items from "./assets/background_items.png"
+import rocketImage from './assets/space.png';
 import Blogimages from "./assets/blog.png";
 import MouseTracker from './components/MouseTracker';
 
