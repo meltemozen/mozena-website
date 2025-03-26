@@ -12,7 +12,7 @@ function App() {
     <>
 
     <Navbar title={"Navbar"}/>
-    <About title={"About"}/>
+    <About title={"Güvenilir ve Sonuç Odaklı"}  background_items= {background_items} rocketImage={rocketImage}/>
     <Projects title={"Projects"}/>
     <Services title={"Services"}/>
     <Blog title={"Blog"}/>
