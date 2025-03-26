@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 interface AboutProps {
   title: string;
-  rocketImage: any;
-  background_items : any;
+  rocketImage: string;
+  background_items : string;
 }
 
 const About: React.FC<AboutProps> = ({title, background_items,rocketImage}) => {

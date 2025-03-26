@@ -6,12 +6,12 @@ import CommunicationForm from './components/CommunicationForm';
 import Blog from './components/Blog';
 import Services from './components/Services';
 import Projects from './components/Projects';
-import background_items from "./assets/background_items.png"
-import rocketImage from './assets/space.png';
-import Blogimages from "./assets/blog.png";
 import MouseTracker from './components/MouseTracker';
 
 function App() {
+  const background_items = "/assets/background_items.png"; 
+  const rocketImage = "/assets/space.png"
+  const Blogimages = "/assets/blog.png"
   return (
     <>
 
