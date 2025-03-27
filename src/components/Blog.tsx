@@ -59,7 +59,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
           {selectedPosts.map((post, index) => (
             <motion.div
             key={index}
-            className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col items-center shadow-lg relative overflow-hidden"
+            className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col items-center justify-center shadow-lg relative overflow-hidden"
           >
             <div
               className="w-full h-full bg-cover rounded-t-[20px]"
