@@ -27,9 +27,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
   const selectedPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center p-4 
-  w-full h-auto sm:w-[1440px] sm:h-[891px] 
-  top-0 left-0 sm:top-[-2520px] sm:left-[8052px]">
+    <div className="bg-white min-h-screen flex flex-col items-center p-2 ">
       <motion.img
         src={blogimage}
         alt="Blogimages"
@@ -59,7 +57,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
           {selectedPosts.map((post, index) => (
             <motion.div
             key={index}
-            className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col items-center shadow-lg relative overflow-hidden"
+            className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col  justify-center shadow-lg relative overflow-hidden object-center "
           >
             <div
               className="w-full h-full bg-cover rounded-t-[20px]"
