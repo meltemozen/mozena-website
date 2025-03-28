@@ -78,7 +78,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
       </AnimatePresence>
 
       <motion.div
-        className="w-[240px] min-h-[36px] flex items-center justify-center space-x-2 mt-6 bg-[#D9D9D9] rounded-[20px] p-2"
+        className="w-[240px] min-h-[36px] flex items-center justify-center space-x-2 mt-6 bg-[#D9D9D9] rounded-[20px] "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
