@@ -27,7 +27,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
   const selectedPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center p-2 ">
+    <div className="bg-white min-h-screen flex flex-col items-center  ">
       <motion.img
         src={blogimage}
         alt="Blogimages"
