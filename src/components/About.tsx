@@ -2,17 +2,16 @@ import React, { useEffect, useState } from 'react';
 
 interface AboutProps {
   title: string;
-  background_items: any;
-  rocket_image: any;
+  rocketImage: string;
+  background_items : string;
 }
 
-const About: React.FC<AboutProps> = ({title, background_items, rocket_image}) => {
+const About: React.FC<AboutProps> = ({title, background_items,rocketImage}) => {
     const [animateOut, setAnimateOut] = useState(false);
   
-    /*useEffect(() => {
+    useEffect(() => {
       const handleScroll = () => {
-        const scrollThreshold = 300; // Ne kadar scroll yapıldığında animasyon başlasın
-        if (window.scrollY > scrollThreshold) {
+        if (window.scrollY > 0) {
           setAnimateOut(true);
         } else {
           setAnimateOut(false);
@@ -23,16 +22,7 @@ const About: React.FC<AboutProps> = ({title, background_items, rocket_image}) =>
     
       return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-*/
 
-
-    useEffect(() => {
-      const timeout = setTimeout(() => {
-        setAnimateOut(true);
-      }, 1000);
-  
-      return () => clearTimeout(timeout);
-    }, []);
   return (
     <div className="flex flex-col md:flex-row justify-between items-center gap-12 px-8 md:px-20 py-16 bg-white w-full">
   <div className="w-full md:w-[50%] space-y-10 text-center md:text-left">
@@ -44,7 +34,7 @@ const About: React.FC<AboutProps> = ({title, background_items, rocket_image}) =>
       için çalışıyoruz. Hedefimiz sadece beklentileri karşılamak değil, sınırları aşan
       işler ortaya koymak.
     </p>
-    <a href="https://wa.me/905541392582" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/095518738644" target="_blank" rel="noopener noreferrer">
       <button className="rounded-xl px-5 py-3 bg-[#155CFF] hover:bg-[#004bcc] transition text-white font-semibold shadow-md">
         Whatsapp'tan iletişime geç
       </button>
@@ -57,12 +47,12 @@ const About: React.FC<AboutProps> = ({title, background_items, rocket_image}) =>
       className="absolute top-0 left-0 w-full h-full object-contain z-0"
     />
     <img
-      src= {rocket_image}
+      src={rocketImage}
       alt="animated"
-      className={`
-        absolute w-24 md:w-48 transition-all duration-[5000ms] ease-in z-10
-        ${animateOut ? "-translate-x-[150%] -translate-y-[150%] opacity-0" : "translate-x-0 translate-y-0 opacity-100"}
+      className={`absolute w-24 md:w-48 transition-all duration-[1000ms] ease-in z-10
+        ${animateOut ? "-translate-y-[150%] opacity-0" : "translate-y-0 opacity-100"}
       `}
+      
     />
   </div>
 </div>
