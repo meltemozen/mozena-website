@@ -28,21 +28,25 @@ function App() {
       {content_title: "Tanışma Etkinliği",
         text: "Denizli Coders olarak ilk etkinliğimi düzenledik,Mert bey engin bilgilerini bize aktardı. ",
         image: DatingEvent,
+        tags: ["Etkinlik", "Denizli Coders", "Tanışma"],
       },
       {
         content_title: "Docker-101 Eğitimi",
         text: "Bu eğitimde Docker'ın temellerini öğrenerek konteyner teknolojileri hakkında  bilgi sahibi olduk.",
         image: Docker,
+        tags: ["Docker", "Eğitim", "Konteyner"],
       },
       {
         content_title: "Kariyer Sohbetleri",
         text: " Kerem Atam, sektördeki deneyimlerini ve bu alanda başarılı olmanın ipuçlarını bizimle paylaştı.",
         image:CareerConversations,
+        tags: ["Kariyer", "Deneyim", "Sektör"],
       },
       {
         content_title: "Git ve Github Eğitimi",
         text: "Bu eğitimde Git ve Github'ın temellerini öğrenerek versiyon kontrol sistemleri hakkında bilgi sahibi olduk.",
         image:Github,
+        tags: ["Git", "Github", "Eğitim"],
       },
      
     

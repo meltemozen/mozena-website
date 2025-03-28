@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 interface BlogContent {
   content_title: string;
   text: string;
   image: string;
+  tags: string[];
 }
+
 interface BlogProps {
   title: string;
   blogimage: string;
   posts: BlogContent[];
 }
 
-const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
+const Blog: React.FC<BlogProps> = ({ title, blogimage, posts }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const postsPerPage = 3;
- 
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
   const changePage = (page: number) => {
     setCurrentPage(page);
-  }
+  };
 
   const startIndex = currentPage * postsPerPage;
   const selectedPosts = posts.slice(startIndex, startIndex + postsPerPage);
 
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center p-2 ">
+    <div className="bg-white min-h-screen flex flex-col items-center ">
       <motion.img
         src={blogimage}
         alt="Blogimages"
@@ -56,21 +56,31 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
         >
           {selectedPosts.map((post, index) => (
             <motion.div
-            key={index}
-            className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col  justify-center shadow-lg relative overflow-hidden object-center "
-          >
-            <div
-              className="w-full h-full bg-cover rounded-t-[20px]"
-              style={{ backgroundImage: `url(${post.image})` }}
-            ></div>
+              key={index}
+              className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col justify-center shadow-lg relative overflow-hidden object-center  "
+            >
+              <div
+                className="w-full h-full bg-cover rounded-t-[20px]"
+                style={{ backgroundImage: `url(${post.image})` }}
+              ></div>
 
-            <div className="bg-white w-full h-auto flex flex-col items-center justify-center text-center p-4 rounded-b-[20px]">
-             <h2 className="text-xl md:text-2xl font-bold text-[#002566] mb-2">
-             {post.content_title}
-             </h2>
-             <p className="text-gray-700 text-sm md:text-base">
-             {post.text}
-             </p>
+              <div className="bg-white w-full h-auto flex flex-col items-center justify-center text-center p-4 ">
+                <h2 className="text-xl md:text-xl font-bold text-[#002566] mb-2">
+                  {post.content_title}
+                </h2>
+                <p className="text-gray-700 text-sm md:text-base mb-2">
+                  {post.text}
+                </p>
+              </div>
+              <div className="bg-white w-full flex flex-wrap justify-center p-2 rounded-b-[20px]">
+                {post.tags.slice(0, 3).map((tag, tagIndex) => (
+                  <span
+                    key={tagIndex}
+                    className="bg-gray-200   text-[#002566] text-xs font-semibold px-2 py-1 rounded-full m-1"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
