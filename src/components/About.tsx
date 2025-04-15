@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 interface AboutProps {
   title: string;
   background_items: any;
+  rocket_image: any;
 }
 
-const About: React.FC<AboutProps> = ({title, background_items}) => {
+const About: React.FC<AboutProps> = ({title, background_items, rocket_image}) => {
     const [animateOut, setAnimateOut] = useState(false);
   
     /*useEffect(() => {
@@ -56,7 +57,7 @@ const About: React.FC<AboutProps> = ({title, background_items}) => {
       className="absolute top-0 left-0 w-full h-full object-contain z-0"
     />
     <img
-      src="/assets/Uzay.png"
+      src= {rocket_image}
       alt="animated"
       className={`
         absolute w-24 md:w-48 transition-all duration-[5000ms] ease-in z-10

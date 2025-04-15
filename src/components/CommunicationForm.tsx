@@ -4,7 +4,7 @@ interface CommunicationFormProps {
   title: string;
 }
 
-const CommunicationForm: React.FC<CommunicationFormProps> = ({ title }) => {
+const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
