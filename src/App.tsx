@@ -6,6 +6,7 @@ import CommunicationForm from './components/CommunicationForm';
 import Blog from './components/Blog';
 import Services from './components/Services';
 import Projects from './components/Projects';
+import CookieConsent from "react-cookie-consent";
 import background_items from "./assets/Background items.png";
 import rocketImage from './assets/Uzay.png';
 import Blogimages from "./assets/blog.png";
@@ -18,6 +19,39 @@ import Github from './assets/Github.jpg';
 function App() {
   return (
     <>
+      <div>
+        <CookieConsent
+          location="bottom"
+          buttonText={("Kabul Et")}
+          declineButtonText={("Reddet")}
+          enableDeclineButton
+          cookieName="MozenaCookieConsent"
+          
+          style={{ background: "#0000cd", color: "#fff",textAlign: "center"}}
+          buttonStyle={{
+            background: "#000080",
+
+            color: "#fff",
+
+            fontSize: "14px",
+          }}
+          declineButtonStyle={{
+            background: "#fff",
+
+            color: "#000080",
+
+            fontSize: "14px",
+          }}
+          
+          expires={150}
+        >
+          {
+          (
+            
+            "İçeriği kişiselleştirmek, reklamları daha uygun hale getirmek ve etkileşimi ölçmek amacıyla çerezler ve benzeri teknolojiler kullanıyoruz. 'Kabul Et' butonuna tıklayarak, Çerez Politikamızda belirtilen şartları kabul etmiş olursunuz. Daha iyi bir deneyim için bize katılın!"
+          )}
+        </CookieConsent>
+      </div>
 
     <Navbar title={"Navbar"}/>
     <About title={"Güvenilir ve Sonuç Odaklı"}  background_items={background_items} rocket_image={rocketImage}/>
@@ -53,7 +87,10 @@ function App() {
     
     />
     <CommunicationForm title={"CommunicationForm"}/>   
-    <Footer title={"Footer"} />
+    <Footer 
+        brandName="Mozena" 
+        accentColor="bg-red-500"
+      /> 
     <MouseTracker />
     </>
   )
