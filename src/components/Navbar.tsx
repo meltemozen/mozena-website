@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -116,6 +115,7 @@ const Navbar: React.FC = () => {
           </a>
         </div>
       )}
+
     </nav>
   );
 };
