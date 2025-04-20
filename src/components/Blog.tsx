@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -13,7 +14,7 @@ interface BlogProps {
   posts: BlogContent[];
 }
 
-const Blog: React.FC<BlogProps> = ({ title, blogimage, posts }) => {
+const Blog: React.FC<BlogProps> = ({ title,  posts }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const postsPerPage = 3;
  
@@ -26,14 +27,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage, posts }) => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col items-center  ">
-      <motion.img
-        src={blogimage}
-        alt="Blogimages"
-        className="w-[250px] h-[250px] mx-auto md:w-[350px] md:h-[350px] md:absolute md:right-0 md:top-690  md:left-[900px] z-10"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-      />
+     
       
 
       <motion.h1

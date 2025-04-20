@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 
 interface AboutProps {
@@ -79,7 +80,7 @@ const About: React.FC<AboutProps> = ({title, background_items, rocket_image}) =>
           için çalışıyoruz. Hedefimiz sadece beklentileri karşılamak değil, sınırları aşan
           işler ortaya koymak.
         </p>
-        <a href="https://wa.me/905541392582" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/905518738644" target="_blank" rel="noopener noreferrer"> 
           <button className="rounded-xl px-5 py-3 bg-[#155CFF] hover:bg-[#004bcc] transition text-white font-semibold shadow-md">
             Whatsapp'tan iletişime geç
           </button>

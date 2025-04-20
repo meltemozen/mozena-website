@@ -10,7 +10,7 @@ import CookieConsent from "react-cookie-consent";
 import background_items from "./assets/Background items.png";
 import rocketImage from "./assets/Uzay.png";
 import Blogimages from "./assets/blog.png";
-import MouseTracker from "./components/MouseTracker";
+//import MouseTracker from "./components/MouseTracker";
 import DatingEvent from "./assets/DatingEvents.jpg";
 import Docker from "./assets/Docker.jpg";
 import CareerConversations from "./assets/CareerConversations.jpg";
@@ -103,7 +103,7 @@ function App() {
       </section>
 
       <Footer brandName="Mozena" accentColor="bg-red-500" />
-      <MouseTracker />
+    
     </>
   );
 }

@@ -52,22 +52,22 @@ interface ServicesProps {
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
           transition={{ duration: 1, ease: "easeInOut" }} 
-          className="absolute text-3xl md:text-5xl font-bold text-[#002566] font-sans leading-tight"
+          className="absolute text-2xl md:text-5xl font-bold text-[#002566] font-sans leading-tight"
         >
           {servicesTitle}
         </motion.p>
         )}
 
-        <div className="flex items-center justify-end h-screen p-10">
-        <div className="w-1/2">
-          <h2 className="text-3xl font-bold text-[#002566]">
-            {mainTitle1}
-          </h2>
-        <p className="mt-2 text-lg text-[#002566]">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-end w-full min-h-screen p-4 md:p-10 ">
+        <div className="w-full md:w-1/2 max-w-xl px-4 py-6">
+           <h2 className="text-xl md:text-3xl font-bold text-[#002566]">
+              {mainTitle1}
+           </h2>
+         <p className="mt-2 text-base md:text-lg text-[#002566]">
             {subTitle1}
-        </p>
+          </p>
         </div>
-        </div>
+      </div>
 
       </div>
 
