@@ -25,9 +25,11 @@
 
 @layer base {
   /* Apply global text color */
+  
   body {
     color: var(--color-text);
     letter-spacing: -0.02em;
+    
   }
 
   /* Typography base styles */

@@ -19,7 +19,6 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
     message: false,
   });
 
-  const [animate, setAnimate] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -32,7 +31,6 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
         const rect = formElement.getBoundingClientRect();
         const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
         if (isVisible) {
-          setAnimate(true);
         }
       }
     };
@@ -139,7 +137,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
   };
 
   return (
-    <div className="bg-gray-50 py-16 px-8 md:px-20">
+    <div className="bg-gray-50  py-4 px-2 md:px-20">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-[#002566] mb-4">
@@ -187,11 +185,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div
-                  className={`transform transition-all duration-1000 ${
-                    animate
-                      ? "translate-x-0 opacity-100"
-                      : "-translate-x-full opacity-0"
-                  }`}
+                  
                 >
                   <label
                     htmlFor="fullName"
@@ -217,11 +211,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
                 </div>
 
                 <div
-                  className={`transform transition-all duration-1000 ${
-                    animate
-                      ? "translate-x-0 opacity-100"
-                      : "translate-x-full opacity-0"
-                  }`}
+                  
                 >
                   <label
                     htmlFor="phone"
@@ -241,11 +231,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
               </div>
 
               <div
-                className={`transform transition-all duration-1000 ${
-                  animate
-                    ? "translate-y-0 opacity-100"
-                    : "-translate-y-full opacity-0"
-                }`}
+                
               >
                 <label
                   htmlFor="email"
@@ -271,11 +257,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
               </div>
 
               <div
-                className={`transform transition-all duration-1000 delay-300 ${
-                  animate
-                    ? "translate-y-0 opacity-100"
-                    : "-translate-y-full opacity-0"
-                }`}
+                
               >
                 <label
                   htmlFor="company"
@@ -294,11 +276,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
               </div>
 
               <div
-                className={`transform transition-all duration-1000 ${
-                  animate
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-full opacity-0"
-                }`}
+                
               >
                 <label
                   htmlFor="message"
@@ -330,16 +308,12 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
               )}
 
               <div
-                className={`flex justify-center mt-8 transform transition-all duration-1000 delay-500 ${
-                  animate
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-20 opacity-0"
-                }`}
+                
               >
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-16 py-3 bg-[#155CFF] text-white font-medium rounded-md ${
+                  className={`md:px-16 md:py-3 bg-[#155CFF] text-white font-medium rounded-md px-8 py-1.5$
                     isSubmitting
                       ? "opacity-70 cursor-not-allowed"
                       : "hover:bg-[#1240c0]"
