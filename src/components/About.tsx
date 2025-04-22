@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, useRef } from 'react';
+=======
+
+import React, { useEffect, useState } from 'react';
+>>>>>>> af5b28026f13fa8a7fda967d86b1a0aa5deb10b8
 
 interface AboutProps {
   title: string;
@@ -126,7 +131,11 @@ const About: React.FC<AboutProps> = ({ title, background_items, rocket_image }) 
           için çalışıyoruz. Hedefimiz sadece beklentileri karşılamak değil, sınırları aşan
           işler ortaya koymak.
         </p>
+<<<<<<< HEAD
         <a href="https://wa.me/905518738644" target="_blank" rel="noopener noreferrer">
+=======
+        <a href="https://wa.me/905518738644" target="_blank" rel="noopener noreferrer"> 
+>>>>>>> af5b28026f13fa8a7fda967d86b1a0aa5deb10b8
           <button className="rounded-xl px-5 py-3 bg-[#155CFF] hover:bg-[#004bcc] transition text-white font-semibold shadow-md">
             Whatsapp'tan iletişime geç
           </button>
