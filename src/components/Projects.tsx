@@ -61,7 +61,7 @@ const ProjectItem = ({ project, index }: { project: any; index: number }) => {
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     )
 
     if (ref.current) {
@@ -80,8 +80,8 @@ const ProjectItem = ({ project, index }: { project: any; index: number }) => {
         transform: isVisible
           ? "translateX(0)"
           : index % 2 === 0
-          ? "translateX(-150px)"
-          : "translateX(150px)",
+          ? "translateX(-50px)"
+          : "translateX(50px)",
       }}
       ref={ref}
     >

@@ -137,7 +137,7 @@ const CommunicationForm: React.FC<CommunicationFormProps> = ({}) => {
   };
 
   return (
-    <div className="bg-gray-50  py-4 px-2 md:px-20">
+    <div className="bg-gray-50  py-15 px-2 md:px-20">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-[#002566] mb-4">

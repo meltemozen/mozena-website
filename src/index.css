@@ -41,7 +41,7 @@
   }
 
   section {
-    padding: var(--spacing-section);
+    padding:0;
   }
 }
 
@@ -76,4 +76,5 @@
     background-color: var(--color-background);
     font-weight: 600;
   }
+  
 }
