@@ -9,15 +9,6 @@ import Projects from "./components/Projects";
 import CookieConsent from "react-cookie-consent";
 import background_items from "./assets/Background items.png";
 import rocketImage from "./assets/Uzay.png";
-<<<<<<< HEAD
-=======
-import Blogimages from "./assets/blog.png";
-//import MouseTracker from "./components/MouseTracker";
-import DatingEvent from "./assets/DatingEvents.jpg";
-import Docker from "./assets/Docker.jpg";
-import CareerConversations from "./assets/CareerConversations.jpg";
-import Github from "./assets/Github.jpg";
->>>>>>> af5b28026f13fa8a7fda967d86b1a0aa5deb10b8
 
 function App() {
   return (
