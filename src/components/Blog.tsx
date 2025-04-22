@@ -1,27 +1,41 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-
-interface BlogContent {
-  content_title: string;
-  text: string;
-  image: string;
-}
 interface BlogProps {
-  title: string;
   blogimage: string;
-  posts: BlogContent[];
 }
 
-const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
+const Blog: React.FC<BlogProps> = ({ blogimage }) => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const postsPerPage = 3;
- 
+
+  const posts = [
+    {
+      content_title: t("blogPosts.post1Title"),
+      text: t("blogPosts.post1Text"),
+      image: "/assets/DatingEvents.jpg",
+    },
+    {
+      content_title: t("blogPosts.post2Title"),
+      text: t("blogPosts.post2Text"),
+      image: "/assets/Docker.jpg",
+    },
+    {
+      content_title: t("blogPosts.post3Title"),
+      text: t("blogPosts.post3Text"),
+      image: "/assets/CareerConversations.jpg",
+    },
+    {
+      content_title: t("blogPosts.post4Title"),
+      text: t("blogPosts.post4Text"),
+      image: "/assets/Github.jpg",
+    },
+  ];
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
-  const changePage = (page: number) => {
-    setCurrentPage(page);
-  }
+  const changePage = (page: number) => setCurrentPage(page);
 
   const startIndex = currentPage * postsPerPage;
   const selectedPosts = posts.slice(startIndex, startIndex + postsPerPage);
@@ -42,7 +56,7 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        {title}
+        {t("blog")}
       </motion.h1>
 
       <AnimatePresence mode="wait">
@@ -56,21 +70,21 @@ const Blog: React.FC<BlogProps> = ({ title, blogimage,posts }) => {
         >
           {selectedPosts.map((post, index) => (
             <motion.div
-            key={index}
-            className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col  justify-center shadow-lg relative overflow-hidden object-center "
-          >
-            <div
-              className="w-full h-full bg-cover rounded-t-[20px]"
-              style={{ backgroundImage: `url(${post.image})` }}
-            ></div>
+              key={index}
+              className="bg-[#D9D9D9] w-full max-w-[300px] sm:max-w-[433px] h-[400px] rounded-[20px] flex flex-col justify-center shadow-lg relative overflow-hidden object-center"
+            >
+              <div
+                className="w-full h-full bg-cover rounded-t-[20px]"
+                style={{ backgroundImage: `url(${post.image})` }}
+              ></div>
 
-            <div className="bg-white w-full h-auto flex flex-col items-center justify-center text-center p-4 rounded-b-[20px]">
-             <h2 className="text-xl md:text-2xl font-bold text-[#002566] mb-2">
-             {post.content_title}
-             </h2>
-             <p className="text-gray-700 text-sm md:text-base">
-             {post.text}
-             </p>
+              <div className="bg-white w-full h-auto flex flex-col items-center justify-center text-center p-4 rounded-b-[20px]">
+                <h2 className="text-xl md:text-2xl font-bold text-[#002566] mb-2">
+                  {post.content_title}
+                </h2>
+                <p className="text-gray-700 text-sm md:text-base">
+                  {post.text}
+                </p>
               </div>
             </motion.div>
           ))}

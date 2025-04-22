@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false); // 🔥 Dil dropdown state
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setLangOpen(false); // Seçimden sonra dropdown kapansın
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
@@ -17,48 +25,46 @@ const Navbar: React.FC = () => {
         {/* Desktop Menü */}
         <ul className="hidden md:flex space-x-10 text-[#002566] font-medium">
           <li>
-            <a
-              href="#services"
-              className="hover:text-[#0055e3] transition-colors duration-200"
-            >
-              Hizmetlerimiz
-            </a>
+            <a href="#services">{t("services")}</a>
           </li>
           <li>
-            <a
-              href="#projects"
-              className="hover:text-[#0055e3] transition-colors duration-200"
-            >
-              Projelerimiz
-            </a>
+            <a href="#projects">{t("projects")}</a>
           </li>
           <li>
-            <a
-              href="#blog"
-              className="hover:text-[#0055e3] transition-colors duration-200"
-            >
-              Blog
-            </a>
+            <a href="#blog">{t("blog")}</a>
           </li>
           <li>
-            <a
-              href="#contact"
-              className="hover:text-[#0055e3] transition-colors duration-200"
-            >
-              İletişim
-            </a>
+            <a href="#contact">{t("contact")}</a>
           </li>
         </ul>
 
-        {/* Desktop Buton */}
-        <div className="hidden md:block">
-          <a href="#contact" className="button-primary">
-            Daha Fazla Öğren
-          </a>
+        <div className="relative hidden md:block">
+          <button
+            onClick={() => setLangOpen(!langOpen)}
+            className="text-black font-medium"
+          >
+            🌐 {i18n.language.toUpperCase()}
+          </button>
+          {langOpen && (
+            <div className="absolute right-0 mt-2 w-24 bg-white border rounded shadow">
+              <button
+                onClick={() => changeLanguage("tr")}
+                className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+              >
+                Türkçe
+              </button>
+              <button
+                onClick={() => changeLanguage("en")}
+                className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+              >
+                English
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* Mobile Hamburger Icon */}
-        <div className="md:hidden">
+        {/* Hamburger Menu */}
+        <div className="md:hidden flex items-center">
           {isOpen ? (
             <X
               size={28}
@@ -78,41 +84,33 @@ const Navbar: React.FC = () => {
       {/* Mobile Menü */}
       {isOpen && (
         <div className="md:hidden flex flex-col items-center gap-6 pb-6">
-          <a
-            href="#services"
-            className="text-[#002566] font-medium hover:text-[#0055e3]"
-            onClick={() => setIsOpen(false)}
-          >
-            Hizmetlerimiz
+          <a href="#services" onClick={() => setIsOpen(false)}>
+            {t("services")}
           </a>
-          <a
-            href="#projects"
-            className="text-[#002566] font-medium hover:text-[#0055e3]"
-            onClick={() => setIsOpen(false)}
-          >
-            Projelerimiz
+          <a href="#projects" onClick={() => setIsOpen(false)}>
+            {t("projects")}
           </a>
-          <a
-            href="#blog"
-            className="text-[#002566] font-medium hover:text-[#0055e3]"
-            onClick={() => setIsOpen(false)}
-          >
-            Blog
+          <a href="#blog" onClick={() => setIsOpen(false)}>
+            {t("blog")}
           </a>
-          <a
-            href="#contact"
-            className="text-[#002566] font-medium hover:text-[#0055e3]"
-            onClick={() => setIsOpen(false)}
-          >
-            İletişim
+          <a href="#contact" onClick={() => setIsOpen(false)}>
+            {t("contact")}
           </a>
-          <a
-            href="#contact"
-            className="button-primary"
-            onClick={() => setIsOpen(false)}
-          >
-            Daha Fazla Öğren
-          </a>
+          {/* Mobil Dil Seçici */}
+          <div className="flex space-x-2">
+            <button
+              onClick={() => changeLanguage("tr")}
+              className="text-[#0055e3]"
+            >
+              TR
+            </button>
+            <button
+              onClick={() => changeLanguage("en")}
+              className="text-[#0055e3]"
+            >
+              EN
+            </button>
+          </div>
         </div>
       )}
     </nav>

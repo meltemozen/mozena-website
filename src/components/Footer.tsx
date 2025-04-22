@@ -1,89 +1,75 @@
-import React from 'react';
-
-
-interface FooterColumn {
-  title: string;
-  items: string[];
-}
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface FooterProps {
   brandName?: string;
-  description?: string;
-  leftBarColor?: string;
-  rightBarColor?: string;
   accentColor?: string;
   curveColor?: string;
 }
 
 const Footer: React.FC<FooterProps> = ({
-  brandName = 'Mozena',
-  description = 'Velit dolor enim natiatur excepteur commodo mollit commodo qui pariatur esse consectetur. Elit proident et proident est enim.',
-  accentColor = 'bg-cyan-400',
-  curveColor = 'bg-blue-500'
+  brandName = "Mozena",
+  accentColor = "bg-cyan-400",
+  curveColor = "bg-blue-500",
 }) => {
-  const footerColumns: FooterColumn[] = [
+  const { t } = useTranslation();
+
+  const footerColumns = [
     {
-      title: 'HAKKIMIZDA',
-      items: ['Şirketimiz', 'Misyonumuz', 'İletişim']
+      title: t("footer.about"),
+      items: [t("footer.company"), t("footer.mission"), t("footer.contact")],
     },
     {
-      title: 'HİZMETLER',
-      items: ['Danışmanlık', 'Yazılım', 'Tasarım']
+      title: t("footer.services"),
+      items: [t("footer.consulting"), t("footer.software"), t("footer.design")],
     },
     {
-      title: 'KAYNAKLAR',
-      items: ['Blog', 'Duyurular', 'Belgeler']
-    }
+      title: t("footer.resources"),
+      items: [t("footer.blog"), t("footer.announcements"), t("footer.docs")],
+    },
   ];
 
   return (
     <footer className="w-full bg-black text-white relative py-12">
+      {/* Üst curve */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <div className="w-20 h-10 bg-white rounded-t-full"></div>
-        <div className={`w-20 h-1 ${curveColor} absolute bottom-0 left-0`}></div>
+        <div
+          className={`w-20 h-1 ${curveColor} absolute bottom-0 left-0`}
+        ></div>
       </div>
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+
+      {/* Alt curve */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
         <div className="w-20 h-10 bg-white rounded-b-full"></div>
         <div className={`w-20 h-1 ${curveColor} absolute top-0 left-0`}></div>
       </div>
 
+      {/* Footer içerik */}
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between">
-        <div className="mb-6 md:mb-0 flex">
-          <div>
-            <h3 className="text-sm font-bold mb-4">{footerColumns[0].title}</h3>
-            <ul className="space-y-2">
-              {footerColumns[0].items.map((item, index) => (
-                <li key={`col1-${index}`} className="text-sm">{item}</li>
-              ))}
-            </ul>
+        {footerColumns.map((col, colIndex) => (
+          <div key={colIndex} className="mb-6 md:mb-0 flex">
+            <div>
+              <h3 className="text-sm font-bold mb-4">{col.title}</h3>
+              <ul className="space-y-2">
+                {col.items.map((item, index) => (
+                  <li key={index} className="text-sm">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-        <div className="mb-6 md:mb-0">
-          <h3 className="text-sm font-bold mb-4">{footerColumns[1].title}</h3>
-          <ul className="space-y-2">
-            {footerColumns[1].items.map((item, index) => (
-              <li key={`col2-${index}`} className="text-sm">{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="mb-6 md:mb-0 flex">
-          <div>
-            <h3 className="text-sm font-bold mb-4">{footerColumns[2].title}</h3>
-            <ul className="space-y-2">
-              {footerColumns[2].items.map((item, index) => (
-                <li key={`col3-${index}`} className="text-sm">{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        ))}
+
         <div className="md:max-w-xs">
-          <p className="text-sm mb-4">{description}</p>
+          <p className="text-sm mb-4">{t("footer.description")}</p>
           <div className="flex justify-end">
             <h2 className="text-6xl font-bold tracking-wider border border-white mt-6 px-2">
               {brandName}
             </h2>
           </div>
-           <div className={`w-6 h-1 ${accentColor} ml-auto mt-2`}></div>
+          <div className={`w-6 h-1 ${accentColor} ml-auto mt-2`}></div>
         </div>
       </div>
     </footer>

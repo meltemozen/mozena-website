@@ -12,10 +12,12 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.9",
     "framer-motion": "^12.5.0",
+    "i18next": "^25.0.1",
     "lucide-react": "^0.488.0",
     "react": "^19.0.0",
     "react-cookie-consent": "^9.0.0",
     "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.1",
     "tailwindcss": "^4.0.9"
   },
   "devDependencies": {

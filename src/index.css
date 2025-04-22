@@ -9,30 +9,26 @@
 
   --spacing-section: 3.125rem 6.25rem;
   --spacing-section-m: 1rem 3.125rem;
+
+  /* Light mode renkler */
   --color-text: #002566;
   --color-background: #ffffff;
   --color-primary: #0055e3;
-  /* H0 Clamp: Normally, 128px on Desktop */
-  --text-h0: clamp(2.5rem, 5vw, 8rem);
 
-  /* H1, H2 clamp, 64px on a normal desktop */
+  /* Typography */
+  --text-h0: clamp(2.5rem, 5vw, 8rem);
   --text-h1: clamp(1.5rem, 3vw, 4rem);
   --text-h2: clamp(1.5rem, 3vw, 4rem);
-
-  /* H3 clamp, 32px on a normal desktop */
   --text-h3: clamp(1.25rem, 2.5vw, 2.5rem);
 }
 
 @layer base {
-  /* Apply global text color */
   body {
     color: var(--color-text);
+    background-color: var(--color-background); /* Burayı ekledik */
     letter-spacing: -0.02em;
   }
 
-  /* Typography base styles */
-  h1,
-  h2,
   h3 {
     text-transform: uppercase;
     letter-spacing: -0.05em;
