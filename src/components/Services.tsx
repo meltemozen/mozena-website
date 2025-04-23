@@ -67,7 +67,11 @@ interface ServicesProps {
   <div className="w-full md:w-1/2 max-w-xl px-4 py-6 flex justify-center items-center">
     <img
       src={hizmetlerimiz}
-      className="w-full h-auto max-w-md object-contain md:translate-x-28 scale-125 transform transition-transform duration-300" 
+      className="w-full h-auto max-w-md object-contain transform transition-transform duration-300 
+      sm:scale-110 
+      md:scale-115 md:translate-x-16 
+      lg:scale-125 lg:translate-x-24 
+      xl:scale-135 xl:translate-x-28"
       alt="Hizmetlerimiz"
     />
   </div>

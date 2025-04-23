@@ -73,7 +73,6 @@ const BlogSection: React.FC<BlogSectionProps> = ({ heading, cards }) => {
         </div>
       </div>
 
-      {/* Modal */}
       {activeModal !== null && (
         <div className="fixed inset-0  bg-opacity-40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl max-w-xs sm:max-w-md md:max-w-lg w-full max-h-[90vh] overflow-y-auto">
