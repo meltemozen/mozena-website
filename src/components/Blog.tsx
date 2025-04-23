@@ -118,7 +118,6 @@ const BlogSection: React.FC<BlogSectionProps> = ({ heading, cards }) => {
   );
 };
 
-// Örnek kullanım
 const blogData = {
   heading: "Blog",
   cards: [
