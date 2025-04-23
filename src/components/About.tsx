@@ -8,10 +8,10 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ title, background_items, rocket_image }) => {
   const [rocketPosition, setRocketPosition] = useState({ x: 10, y: 90, rotation: 45 });
-  const [exhaustParticles, setExhaustParticles] = useState<Array<{id: number, x: number, y: number, opacity: number, size: number}>>([]);
+  const [tracePoints, setTracePoints] = useState<Array<{id: number, x: number, y: number, opacity: number, color: string}>>([]);
   const isAnimating = true;
   const [isRocketVisible, setIsRocketVisible] = useState(true);
-  const particleIdRef = useRef(0);
+  const traceIdRef = useRef(0);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
 
   useEffect(() => {
@@ -25,48 +25,63 @@ const About: React.FC<AboutProps> = ({ title, background_items, rocket_image }) 
 
   useEffect(() => {
     if (!isAnimating || !isRocketVisible) return;
- 
+    
     let startTime = Date.now();
-    const animationDuration = windowWidth < 768 ? 4000 : 5000;
- 
+    const animationDuration = windowWidth < 768 ? 1500 : 2000; 
+    
     const animateRocket = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / animationDuration, 1);
- 
-      const x = 10 + progress * 80;
-      const y = 90 - progress * 80; 
- 
-      const rotation = 60; 
- 
+
+      const baseX = 10 + progress * 80;
+      const baseY = 90 - progress * 80;
+
+      const zigZagAmplitude = windowWidth < 768 ? 5 : 8; 
+      const zigZagFrequency = 5; 
+      
+      const zigZagOffset = zigZagAmplitude * Math.sin(progress * zigZagFrequency * Math.PI);
+      
+      const angle = Math.atan2(-1, 1); 
+      const perpAngle = angle + Math.PI / 2; 
+
+      const x = baseX + zigZagOffset * Math.cos(perpAngle);
+      const y = baseY + zigZagOffset * Math.sin(perpAngle);
+
+      const rotationOffset = Math.cos(progress * zigZagFrequency * Math.PI) * 15;
+      const rotation = 45 + rotationOffset; 
+
       setRocketPosition({ x, y, rotation });
 
-      const particleChance = windowWidth < 768 ? 0.7 : 0.6;
-      
-      if (Math.random() > particleChance) {
-        const particleId = particleIdRef.current++;
+      if (progress % 0.01 < 0.005) {
+        const traceId = traceIdRef.current++;
         
-        const baseSize = windowWidth < 768 ? 3 : 4;
-        const sizeVariation = windowWidth < 768 ? 4 : 8;
+        const traceAngle = (rotation - 180) * (Math.PI / 180);
+        const traceDistance = windowWidth < 768 ? 3 : 4;
+        const traceX = x + Math.cos(traceAngle) * traceDistance;
+        const traceY = y + Math.sin(traceAngle) * traceDistance;
         
-        const newParticle = {
-          id: particleId,
-          x: x - 5 + (Math.random() * 2 - 1),
-          y: y + 5 + (Math.random() * 2 - 1),
-          opacity: 0.8 + Math.random() * 0.2,
-          size: baseSize + Math.random() * sizeVariation
+        const hue = 210 + Math.random() * 30;
+        const saturation = 90 + Math.random() * 10;
+        const lightness = 60 + Math.random() * 20;
+        
+        const tracePoint = {
+          id: traceId,
+          x: traceX,
+          y: traceY,
+          opacity: 0.8,
+          color: `hsla(${hue}, ${saturation}%, ${lightness}%, 0.85)`
         };
 
-        setExhaustParticles(prev => [...prev, newParticle]);
+        setTracePoints(prev => [...prev, tracePoint]);
 
-        const particleDuration = windowWidth < 768 ? 800 : 1000;
         setTimeout(() => {
-          setExhaustParticles(prev => prev.filter(p => p.id !== particleId));
-        }, particleDuration + Math.random() * 1000);
+          setTracePoints(prev => prev.filter(p => p.id !== traceId));
+        }, 1500);
       }
       
       if (progress >= 1) {
         setIsRocketVisible(false);
-        setExhaustParticles([]);
+        setTracePoints([]);
         return;
       }
  
@@ -78,27 +93,28 @@ const About: React.FC<AboutProps> = ({ title, background_items, rocket_image }) 
     const animationFrame = requestAnimationFrame(animateRocket);
     return () => cancelAnimationFrame(animationFrame);
   }, [isAnimating, isRocketVisible, windowWidth]);
- 
+
   const handleRocketClick = () => {
     setIsRocketVisible(false);
-    setExhaustParticles([]);
+    setTracePoints([]);
   };
 
   return (
     <div className="flex flex-col md:flex-row justify-between items-center gap-12 px-8 md:px-20 py-16 bg-white w-full relative overflow-hidden">
-      {exhaustParticles.map((particle) => (
+      {tracePoints.map((point, index) => (
         <div
-          key={particle.id}
-          className="absolute rounded-full bg-gray-200"
+          key={point.id}
+          className="absolute rounded-full"
           style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${Math.max(particle.size * 0.5, 2)}px`,
-            height: `${Math.max(particle.size * 0.5, 2)}px`,
-            opacity: particle.opacity,
+            left: `${point.x}%`,
+            top: `${point.y}%`,
+            width: `${8 - index * 0.15}px`,
+            height: `${8 - index * 0.15}px`,
+            backgroundColor: point.color,
+            opacity: point.opacity * (1 - index * 0.02),
             transform: 'translate(-50%, -50%)',
-            transition: 'opacity 1s',
-         
+            boxShadow: `0 0 10px 3px ${point.color}`,
+            zIndex: 15,
           }}
         />
       ))}
@@ -107,12 +123,13 @@ const About: React.FC<AboutProps> = ({ title, background_items, rocket_image }) 
         <img
           src={rocket_image}
           alt="rocket"
-          className="absolute z-20 w-10 sm:w-14 md:w-20 lg:w-28 xl:w-32 cursor-pointer transition-opacity duration-500"
+          className="absolute z-20 w-10 sm:w-14 md:w-20 lg:w-28 xl:w-32 cursor-pointer transition-all"
           style={{
             left: `${rocketPosition.x}%`,
             top: `${rocketPosition.y}%`,
             transform: `translate(-50%, -50%) rotate(${rocketPosition.rotation}deg)`,
-            transition: 'opacity 0.5s, top 0s, left 0s, transform 0s'
+            transition: 'transform 0.1s ease-out',
+            filter: 'drop-shadow(0 0 8px rgba(100, 200, 255, 0.7))'
           }}
           onClick={handleRocketClick}
         />
